@@ -6,16 +6,16 @@ import re
 import pandas as pd
 
 
-def year_select(year: int) -> str:
+def year_select(year1: int, year2: int) -> str:
     """
-
+    TODO: Aquesta funcio ha de permetre agafar dades de multiples anys. year1 any minim year 2 any maxim.
     :param year:
     :return:
     """
 
     return website
 
-def scraping(website: str) -> pd.DataFrame:
+def scraping(year: str) -> pd.DataFrame:
     """
 
     :param website:
@@ -42,17 +42,27 @@ def scraping(website: str) -> pd.DataFrame:
     # Iniciliatzem variables per while loop.
     i = 1
     equal_accident = False
+    if year > 2018:
+        website = "https://transit.gencat.cat/ca/el_servei/premsa_i_comunicacio/" \
+                  "comunicats_d_accidents_mortals/accidents-mortals-" + str(
+            year) + "/"
+    if year <= 2018:
+        website = "https://transit.gencat.cat/ca/el_servei/premsa_i_comunicacio/" \
+                  "comunicats_d_accidents_mortals/accidents_mortals_" + str(
+            year) + "/"
     #Primer bucle comprova si hem arribat a la última pàgina.
     while equal_accident == False:
     #Web especifica
-        website = "https://transit.gencat.cat/ca/el_servei/premsa_i_comunicacio/" \
-                  "comunicats_d_accidents_mortals/accidents-mortals-" + str(year)\
-                  + "/index.html?page1416062f-6c94-11ec-833e-005056924a59="\
-                  + str(i) + "&googleoff=1"
+
         page = requests.get(website, headers=headers)
         soup_general = BeautifulSoup(page.content)
         copy_list_accidents = list_accidents.copy()
         print("Scraping pàgina {}".format(i))
+        #TODO: Canviar norma de break. Comprar last i seguent. Quan siguin iguals es la última iteració.
+        if len(copy_list_accidents) % 15 != 0:
+            print('Breaking')
+            break
+
         for a in soup_general.find_all('a', {"class": "avoidEscapeU0023"}):
             link_accident = a['href']
             accident_i = home_web + link_accident
@@ -61,11 +71,11 @@ def scraping(website: str) -> pd.DataFrame:
             list_strongs = soup.find_all('div', {
                 "class": "basic_text_peq pd-15 link-dotted"})
             string_strongs = ''.join(str(list_strongs))
-
+            #TODO: Quan aquests codis no funcionen, guardar URL. Sera un cas a netejar a ma.
             text_prova = string_strongs
-            data = re.findall(r"(?:DIA: )(.*?)(<)", text_prova)[0][0]
-            hora_avis = re.findall(r"(?:HORA D'AVÍS: )(.*?)(h)", text_prova)[0][0]
-            via = re.findall(r"(?:VIA: )(.*?)(<)", text_prova)[0][0]
+            data = re.findall(r"(?:DIA:)(.*?)(<)", text_prova)[0][0]
+            hora_avis = re.findall(r"(?:HORA D'AVÍS:)(.*?)(h)", text_prova)[0][0]
+            via = re.findall(r"(?:VIA:)(.*?)(<)", text_prova)[0][0]
             info_accident = {"Data": data, "Hora_Avis": hora_avis, "Via": via}
             list_accidents.append(info_accident)
 
@@ -81,8 +91,11 @@ def scraping(website: str) -> pd.DataFrame:
         else:
             last_accident = info_accident
         i = i + 1
+        website = home_web + soup_general.find_all('a', {"class": "seguent"})[0]['href']
+
     df = pd.DataFrame.from_records(list_accidents)
+
     return df
-df = scraping(2022)
+df = scraping(2018)
 
 print(df)

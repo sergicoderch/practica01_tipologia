@@ -14,7 +14,7 @@ En aquesta primera pràctica es presenta la funcionalitat de _web scraping_.
 Sergi Coderch i Navarro i Cristian Galán Augé. Contribució equivalent per tots
 dos estudiants. 
 
-##Funcions
+## Funcions
 El lliurament incorpora un sol arxiu `main.py` el qual incorpora dues funcions
 i la opció d'executar el codi a partir del `__main__`
 

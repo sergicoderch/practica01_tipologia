@@ -4,7 +4,7 @@ from selenium import webdriver
 from time import sleep, strftime
 import re
 import pandas as pd
-
+import os
 
 def year_select(year1: int, year2: int) -> pd.DataFrame:
     """
@@ -145,6 +145,6 @@ def scraping(year: str) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    df_total = year_select(2016, 2015)
-
-    print(df_total)
+    df_total = year_select(2014, 2022)
+    df_total.to_csv(os.path.join(os.getcwd(),
+                                 "AccidentsMortals_2014-2022_Catalunya.csv"))

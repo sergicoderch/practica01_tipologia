@@ -11,7 +11,7 @@ periodístics o d'acció sobre la xarxa viària.
 
 En aquesta primera pràctica es presenta la funcionalitat de _web scraping_.
 ## Membres del grup
-Sergi Coderch i Navarro i Cristian Galán Augé. Contribució equivalent per tots
+Sergi Coderch Navarro i Cristian Galán Augé. Contribució equivalent per tots
 dos estudiants. 
 
 ## Funcions
@@ -32,3 +32,8 @@ _dataframe_ que inclou els accidents dels anys especificats.
 
 **Limitacions:** Només es pot fer web scraping fins al 2014 (any inclòs) degut
 a que després els accidents eren carregats en PDF.
+
+## Dataset
+El dataset obtingut d’aquesta pràctica es pot trobar en el següent enllaç de Zenodo:
+
+https://doi.org/10.5281/zenodo.7316989 

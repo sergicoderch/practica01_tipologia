@@ -35,6 +35,6 @@ Aquest arxiu main.py conté la opció d'executar-se a partir del `__main__`. En 
 a que després els accidents eren carregats en PDF.
 
 ## Dataset
-El dataset obtingut d’aquesta pràctica es pot trobar en el següent enllaç de Zenodo:
+El dataset obtingut en aquesta pràctica es troba dins de la carpeta Dataset i alhora està publicat en el següent enllaç de Zenodo:
 
 https://doi.org/10.5281/zenodo.7316989 

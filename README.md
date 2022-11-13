@@ -29,7 +29,7 @@ els accidents notificats per l'any especificat.
 interval d'anys on tots dos _inputs_ són inclosos. El codi retorna un
 _dataframe_ que inclou els accidents dels anys especificats.
 
-Aquest arxiu main.py conté la opció d'executar-se a partir del `__main__`. En aquest cas, farà web scrapping des del 2014 fins al 2022, generant el dataset complet (veure l'apartat Dataset). 
+Aquest arxiu main.py conté la opció d'executar-se a partir del `__main__`. En aquest cas, farà web scrapping des del 2014 fins al 2022, generant el dataset complet (veure l'apartat Dataset). En aquest cas, per executar l'arxiu no cal especificar cap any o rang de cerca, n'hi ha prou amb executar l'arxiu.
 
 **Limitacions:** Només es pot fer web scraping fins al 2014 (any inclòs) degut
 a que després els accidents eren carregats en PDF.

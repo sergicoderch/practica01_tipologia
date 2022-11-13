@@ -15,8 +15,7 @@ Sergi Coderch Navarro i Cristian Galán Augé. Contribució equivalent per tots
 dos estudiants. 
 
 ## Funcions
-El lliurament incorpora un sol arxiu `main.py` el qual incorpora dues funcions
-i la opció d'executar el codi a partir del `__main__`
+Dins de la carpeta Source, el lliurament incorpora un sol arxiu `main.py`, el qual incorpora les següents dues funcions:
 
 * `scraping(year)`: Aquesta funció fa web scraping a l'any especificat
 l'input `year`. Obté la pàgina de Gencat on es fan les notes de premsa i extreu
@@ -29,6 +28,8 @@ els accidents notificats per l'any especificat.
 * `select_year(year1, year2)`: Permet aplicar la funció `scraping()` a un 
 interval d'anys on tots dos _inputs_ són inclosos. El codi retorna un
 _dataframe_ que inclou els accidents dels anys especificats.
+
+Aquest arxiu main.py conté la opció d'executar-se a partir del `__main__`. En aquest cas, farà web scrapping des del 2014 fins al 2022, generant el dataset complet (veure l'apartat Dataset). 
 
 **Limitacions:** Només es pot fer web scraping fins al 2014 (any inclòs) degut
 a que després els accidents eren carregats en PDF.

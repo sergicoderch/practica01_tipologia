@@ -38,3 +38,8 @@ a que després els accidents eren carregats en PDF.
 El dataset obtingut en aquesta pràctica es troba dins de la carpeta Dataset i alhora està publicat en el següent enllaç de Zenodo:
 
 https://doi.org/10.5281/zenodo.7316989 
+
+## Video presentació
+El video explicatiu de la pràctica es pot trobar al següent enllaç de Google Drive: 
+
+https://drive.google.com/file/d/1lHt0-xhv4BM76hn4VZWuxVWjPl08oeda/view?usp=share_link
